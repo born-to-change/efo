@@ -11,7 +11,7 @@ $("#file-input").fileinput({
             prefix: getQuery("prefix")
         };
     },
-    maxFilePreviewSize: 51200
+    maxFilePreviewSize: 2147483648
 }).on('fileuploaded', function (event, data, previewId, index) {
     var json = data.response;
     if (json.status === "success") {
@@ -23,7 +23,7 @@ $("#file-input").fileinput({
 
 $(document).on('ready', function () {
     $("#file-input").fileinput({
-        maxFilePreviewSize: 10240
+        maxFilePreviewSize: 2147483648
     });
 });
 

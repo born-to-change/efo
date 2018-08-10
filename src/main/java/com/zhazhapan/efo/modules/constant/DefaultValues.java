@@ -34,7 +34,7 @@ public class DefaultValues {
     public static final String COLON = ":";
 
     /**
-     * 默认存储路径
+     * 默认存储路径xx
      */
     public static final String STORAGE_PATH = ValueConsts.USER_HOME + ValueConsts.SEPARATOR + "Desktop" + ValueConsts
             .SEPARATOR;

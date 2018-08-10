@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/css/fileinput.min.css">
     <link rel="stylesheet" href="/assets/css/glyphicons.css">
+    <link rel="stylesheet" href="/assets/css/old/nav.css">
     <script src="/assets/js/popper.min.js"></script>
     <script src="/assets/js/jquery-3.3.1.js"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
@@ -19,9 +20,41 @@
     <script src="/assets/js/theme.js"></script>
     <script src="/assets/js/utils.js"></script>
     <link rel="stylesheet" href="/assets/css/style.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
     <title>首页</title>
 </head>
 <body id="particles-js">
+<div class="ue-bar">
+    <div class="ue-bar-warp">
+        <div class="ue-bar-logo">
+            <a href="#">
+                <img src="../img/logo.png" width="51" hegith="20" alt="解忧书屋" title="解忧书屋">
+            </a>
+        </div>
+        <div class="ue-bar-nav">
+            <ul>
+                <li><a href="http://localhost:8080/home">
+                    <em>首页</em>
+                </a></li>
+                <li class="active"><a href="http://localhost:8087/index#uploaded">
+                    <em>文件管理</em>
+                </a></li>
+                <li><a href="http://localhost:8087/upload">
+                    <em>文件上传</em>
+                </a></li>
+                <li ><a href="http://localhost:8087/admin">
+                    <em>用户管理</em>
+                </a></li>
+                <li ><a href="http://localhost:8087/index#bio">
+                    <em>个人中心</em>
+                </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark navbar-toggler fixed-top">
     <img src="/assets/img/efo-favicon.png" class="navbar-brand" style="width: 2rem;height: 2.5rem;"/>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -41,9 +74,6 @@
             <li class="nav-item">
                 <a class="nav-link" data-toggle="pill" href="#bio-tab">我的资料</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="upload" target="_blank">文件上传</a>
-            </li>
         </ul>
     </div>
     <div class="form-inline w-50">
@@ -51,6 +81,7 @@
                placeholder="搜索" id="search"/>
     </div>
 </nav>
+
 <br/><br/><br/>
 <div class="container" id="index">
     <div class="row justify-content-center">
@@ -260,8 +291,11 @@
                                id="edit-file-name"/>
                     </div>
                     <div class="col-sm-3">
-                        <select class="form-control" id="edit-file-category" title="文件分类" data-toggle="tooltip">
+                        <select class="form-control" id="edit-file-category" title="文件分类">
                             <option value="0">未分类</option>
+                            <option value="1">视频</option>
+                            <option value="2">图片</option>
+                            <option value="3">其他</option>
                         </select>
                     </div>
                 </div>

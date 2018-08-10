@@ -6,7 +6,7 @@
         "uploadPath": {
             "windows": "upload",
             "mac": "upload",
-            "linux": "upload"
+            "linux": "dist1/PersonSearchPrj/upload"
         },
         "uploadForm": "yyyyMMdd",
         "tokenPath": {

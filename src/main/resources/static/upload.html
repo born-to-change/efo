@@ -16,7 +16,7 @@
     <script src="/assets/js/piexif.min.js"></script>
     <script src="/assets/js/sortable.min.js"></script>
     <script src="/assets/js/purify.min.js"></script>
-    <script src="/assets/js/x"></script>
+    <script src="/assets/js/fileinput.min.js"></script>
     <script src="/assets/js/theme.js"></script>
     <script src="/assets/js/utils.js"></script>
     <link rel="stylesheet" href="/assets/css/style.css"/>
@@ -32,16 +32,16 @@
         </div>
         <div class="ue-bar-nav">
             <ul>
-                <li><a href="http://localhost:8080/home">
+                <li><a href="http://172.18.32.192:8080/home">
                     <em>首页</em>
                 </a></li>
-                <li class="active"><a href="http://localhost:8087/index">
+                <li class="active"><a href="http://172.18.32.192:8087/index">
                     <em>文件管理</em>
                 </a></li>
-                <li class="active"><a href="http://localhost:8087/upload">
+                <li class="active"><a href="http://172.18.32.192:8087/upload">
                     <em>文件上传</em>
                 </a></li>
-                <li ><a href="http://localhost:8087/admin">
+                <li ><a href="http://172.18.32.192:8087/admin">
                     <em>用户管理</em>
                 </a></li>
                 <li ><a href="./mine.html">
@@ -61,10 +61,7 @@
                     <div class="row form-inline">
                         <div class="col-sm-3 col-5">
                             <select id="category-id" class="form-control w-100" title="分类">
-                                <option value="0">未分类</option>
-                                <option value="1">视频</option>
-                                <option value="2">图片</option>
-                                <option value="3">其他</option>
+                                <option value="1">未分类</option>
                             </select>
                         </div>
                         <div class="col-sm-9 col-7">
@@ -77,8 +74,9 @@
                 <div class="col-sm-12 col-12 offset-sm-0">
                     <textarea class="form-control" rows="5" id="description" title="描述" placeholder="文件描述"></textarea>
                 </div>
+
                 <div class="col-sm-12 col-12 offset-sm-0"><br/>
-                    <input id="file-input" class="form-control file" multiple data-max-file-count="100" name="file"
+                    <input id="file-input" class="form-control file" multiple data-max-file-count="100" accept="video/*" name="file"
                            type="file"/><br/>
                 </div>
             </div>
@@ -88,7 +86,6 @@
     <div class="row text-center" id="footer"></div>
     <br/>
 </div>
-
 <script src="/assets/js/particles.js"></script>
 <script src="/assets/js/default.js"></script>
 <script src="/assets/js/upload.js"></script>

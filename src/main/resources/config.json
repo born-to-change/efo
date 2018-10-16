@@ -6,7 +6,7 @@
         "uploadPath": {
             "windows": "upload",
             "mac": "upload",
-            "linux": "dist1/PersonSearchPrj/upload"
+            "linux": "upload"
         },
         "uploadForm": "yyyyMMdd",
         "tokenPath": {
@@ -60,10 +60,10 @@
             "random": true,
             "listGenerator": {
                 "enable": true,
-                "prefix": "https://fakedog.xyz/image/background/anime/bg_",
+                "prefix": "http://172.18.32.192:8082/code/backgroundImg/",
                 "suffix": ".jpg",
                 "start": 1,
-                "end": 158
+                "end": 14
             }
         }
     },
@@ -112,7 +112,7 @@
     },
     "file": {
         "pageSize": 30,
-        "maxSize": "1024 MB",
+        "maxSize": "2048 MB",
         "tag": {
             "require": false,
             "maxLength": 5,

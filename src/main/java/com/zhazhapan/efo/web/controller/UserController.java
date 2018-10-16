@@ -11,6 +11,7 @@ import com.zhazhapan.efo.modules.constant.ConfigConsts;
 import com.zhazhapan.efo.modules.constant.DefaultValues;
 import com.zhazhapan.efo.service.IUserService;
 import com.zhazhapan.efo.util.ControllerUtils;
+import com.zhazhapan.efo.util.ServiceUtils;
 import com.zhazhapan.modules.constant.ValueConsts;
 import com.zhazhapan.util.Checker;
 import com.zhazhapan.util.Formatter;
@@ -71,6 +72,16 @@ public class UserController {
     @RequestMapping(value = "/reset/{id}/{password}", method = RequestMethod.PUT)
     public String resetPassword(@PathVariable("id") int id, @PathVariable("password") String password) {
         return ControllerUtils.getResponse(userService.resetPassword(id, password));
+    }
+
+    @ApiOperation(value = "获取所有用户")
+    @ApiImplicitParams({@ApiImplicitParam(name = "user", value = "指定用户（默认所有用户）"), @ApiImplicitParam(name = "userName",
+            value = "用户", required = true)})
+    @AuthInterceptor(InterceptorLevel.NONE)
+    @RequestMapping(value = "/getUserId", method = RequestMethod.GET)
+    public String getUserId(String userName) {
+        jsonObject.put("userId", ServiceUtils.getUserId(userName));
+        return jsonObject.toJSONString();
     }
 
     @ApiOperation(value = "更新用户的默认文件权限")
@@ -173,6 +184,7 @@ public class UserController {
         } else {
             request.getSession().setAttribute(ValueConsts.USER_STRING, user);
             jsonObject.put("status", "success");
+            jsonObject.put("userId", user.getId());
             if (auto) {
                 jsonObject.put("token", TokenConfig.generateToken(token, user.getId()));
             } else {

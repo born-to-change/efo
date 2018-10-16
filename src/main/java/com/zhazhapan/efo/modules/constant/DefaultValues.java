@@ -36,7 +36,7 @@ public class DefaultValues {
     /**
      * 默认存储路径xx
      */
-    public static final String STORAGE_PATH = ValueConsts.USER_HOME + ValueConsts.SEPARATOR + "Desktop" + ValueConsts
+    public static final String STORAGE_PATH = "/disk1/PersonSearchPrj/files" + ValueConsts
             .SEPARATOR;
 
     /**

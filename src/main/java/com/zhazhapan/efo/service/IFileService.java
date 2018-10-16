@@ -102,7 +102,6 @@ public interface IFileService {
      */
     List<FileRecord> listUserUploaded(int userId, int offset, String search);
 
-
     /**
      * 通过编号删除，不验证权限
      *

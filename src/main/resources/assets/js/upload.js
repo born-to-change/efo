@@ -3,7 +3,6 @@ $("#file-input").fileinput({
     uploadAsync: true,
     maxFileCount: 100,
     previewFileType: ['image', 'html', 'text', 'video', 'audio', 'flash'],
-    allowedFileExtensions : ['jpg','jpeg','bmp','png','gif','avi','mp4','rm','flv','dmv','wmv'],
     uploadExtraData: function () {
         return {
             categoryId: $("#category-id").val(),

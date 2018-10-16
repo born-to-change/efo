@@ -1,15 +1,3 @@
-if (!window.location.href.replace(/https?:\/\/[a-zA-Z0-9.]*(:\d+)?/g, "").startsWith("/signin")) {
-    window.location.href = "/signin#login";
-}
-function send(data) {
-    window.frames[0].postMessage(JSON.stringify(data), 'http://localhost:8080/home'); // 触发跨域子页面的messag事件
-}
-
-window.addEventListener('message', function(messageEvent) {
-    var data = messageEvent.data;
-    console.info('message from child:', data);
-}, false);
-
 var signinItem = new Vue({
     el: "#signin-div",
     data: {
@@ -21,6 +9,13 @@ var signinItem = new Vue({
         passwordConfirm: ""
     }
 });
+function send(data) {
+    window.frames[0].postMessage(JSON.stringify(data),'http://172.18.32.192:8080/home');
+
+}
+if (!window.location.href.replace(/https?:\/\/[a-zA-Z0-9.]*(:\d+)?/g, "").startsWith("/signin")) {
+    window.location.href = "/signin#login";
+}
 
 function reset() {
     var email = $("#res-email").val();
@@ -91,10 +86,10 @@ function login() {
         var password = $("#password").val();
         var remember = document.getElementById("remember").checked;
         if (username && password) {
-            layer.load(1);
-            localStorage.setItem("userName",username)
-            var data = {"username":username,"user_id":1}
+            localStorage.setItem("userName",username);
+            var data = {"user_name":username,"user_id":localStorage.getItem("userId")}
             send(data)
+            layer.load(1);
             $.ajax({
                 url: "/user/login", type: "PUT", data: {
                     username: username,
@@ -105,11 +100,12 @@ function login() {
                     layer.closeAll();
                     var json = JSON.parse(data);
                     if (json.status === "success") {
+                        localStorage.setItem("userId",json.userId);
                         if (remember) {
                             var exp = new Date();
                             document.cookie = "token=" + json.token + ";expires=" + exp.setTime(exp.getTime() + 30 * 24 * 60 * 60 * 1000);
                         }
-                        window.location.href = "/index";
+                        window.location.href = "http://172.18.32.192:8080/home";
                     } else {
                         alerts("登录失败，用户名或密码不正确");
                     }
